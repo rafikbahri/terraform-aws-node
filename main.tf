@@ -42,7 +42,7 @@ resource "aws_instance" "instance" {
     device_index         = 0
   }
   user_data            = file(var.user_data_file)
-  iam_instance_profile = data.aws_iam_instance_profile.ssm_instance_profile[0].name
+  iam_instance_profile = data.aws_iam_instance_profile.ssm_instance_profile[count.index].name
   tags = merge(
     {
       Name = format("%s00%d", var.server_prefix, count.index + 1)
