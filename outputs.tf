@@ -1,21 +1,21 @@
 output "instance_id" {
   description = "ID of the created EC2 instance"
-  value       = aws_instance.instance.*.id
+  value       = aws_instance.instance[*].id
 }
 
 output "hostnames" {
-  value       = aws_instance.instance.*.tags.Name
+  value       = aws_instance.instance[*].tags.Name
   description = "List of hostnames (one per instance)"
 }
 
 output "public_ip" {
   description = "Public IP of the created EC2 instance"
-  value       = aws_instance.instance.*.public_ip
+  value       = aws_instance.instance[*].public_ip
 }
 
 output "private_ips" {
   description = "List of private/internal IPs"
-  value       = aws_instance.instance.*.private_ip
+  value       = aws_instance.instance[*].private_ip
 }
 
 output "private_key" {

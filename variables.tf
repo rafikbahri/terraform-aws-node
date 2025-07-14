@@ -28,12 +28,6 @@ variable "tags" {
   default     = {}
 }
 
-variable "vpc_id" {
-  description = "Associated VPC ID"
-  type        = string
-  default     = ""
-}
-
 variable "subnet_id" {
   description = "Associated subnet ID"
   type        = string
