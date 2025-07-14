@@ -10,7 +10,6 @@ variable "server_prefix" {
   default     = "ec2"
 }
 
-
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
@@ -47,18 +46,10 @@ variable "private_ips" {
   default     = []
 }
 
-
 variable "security_groups" {
   description = "List of security groups"
   type        = list(any)
   default     = []
-}
-
-
-variable "has_public_ip" {
-  description = "Whether the instance has a public IP address"
-  type        = string
-  default     = false
 }
 
 variable "create_key" {
@@ -73,14 +64,14 @@ variable "key_name" {
   default     = "key-pair"
 }
 
-variable "ssh_enabled" {
-  description = "Whether SSH access to the instance is enabled or not"
-  type        = bool
-  default     = true
-}
-
 variable "user_data_file" {
   type        = string
   description = "User data file path"
   default     = ""
+}
+
+variable "enable_ssm_session_manager" {
+  description = "Enable SSM Session Manager"
+  type        = bool
+  default     = false
 }
