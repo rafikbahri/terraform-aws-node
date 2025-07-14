@@ -5,6 +5,8 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.5 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.67.0 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | >= 2.4.0 |
+| <a name="requirement_tls"></a> [tls](#requirement\_tls) | >= 4.0.0 |
 
 ## Providers
 
@@ -35,18 +37,16 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_ami_id"></a> [ami\_id](#input\_ami\_id) | AMI ID for the EC2 instance | `string` | `""` | no |
 | <a name="input_create_key"></a> [create\_key](#input\_create\_key) | Whether to create a key pair or not | `bool` | `true` | no |
-| <a name="input_has_public_ip"></a> [has\_public\_ip](#input\_has\_public\_ip) | Whether the instance has a public IP address | `string` | `false` | no |
+| <a name="input_enable_ssm_session_manager"></a> [enable\_ssm\_session\_manager](#input\_enable\_ssm\_session\_manager) | Enable SSM Session Manager | `bool` | `false` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | EC2 instance type | `string` | `"t2.micro"` | no |
 | <a name="input_key_name"></a> [key\_name](#input\_key\_name) | Key pair name | `string` | `"key-pair"` | no |
 | <a name="input_private_ips"></a> [private\_ips](#input\_private\_ips) | List of private IPs for this instance | `list(any)` | `[]` | no |
 | <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | List of security groups | `list(any)` | `[]` | no |
 | <a name="input_server_count"></a> [server\_count](#input\_server\_count) | Number of nodes to be created | `number` | `0` | no |
 | <a name="input_server_prefix"></a> [server\_prefix](#input\_server\_prefix) | Instance name prefix | `string` | `"ec2"` | no |
-| <a name="input_ssh_enabled"></a> [ssh\_enabled](#input\_ssh\_enabled) | Whether SSH access to the instance is enabled or not | `bool` | `true` | no |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | Associated subnet ID | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Instance tags | `map(string)` | `{}` | no |
 | <a name="input_user_data_file"></a> [user\_data\_file](#input\_user\_data\_file) | User data file path | `string` | `""` | no |
-| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | Associated VPC ID | `string` | `""` | no |
 
 ## Outputs
 
