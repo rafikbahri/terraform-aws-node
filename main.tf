@@ -1,5 +1,6 @@
 data "aws_iam_instance_profile" "ssm_instance_profile" {
-  name = "SSMInstanceProfile"
+  count = var.enable_ssm_session_manager ? 1 : 0
+  name  = "SSMInstanceProfile"
 }
 
 resource "tls_private_key" "tls-private-key" {
@@ -41,7 +42,7 @@ resource "aws_instance" "instance" {
     device_index         = 0
   }
   user_data            = file(var.user_data_file)
-  iam_instance_profile = data.aws_iam_instance_profile.ssm_instance_profile.name
+  iam_instance_profile = data.aws_iam_instance_profile.ssm_instance_profile[0].name
   tags = merge(
     {
       Name = format("%s00%d", var.server_prefix, count.index + 1)
